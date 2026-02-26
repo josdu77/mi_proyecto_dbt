@@ -2,4 +2,40 @@ version: 2
 
 models:
   - name: mart_weather_obt
-    description: "Tabla final OBT para analítica (OpenWeather + Rest Countries)."
+    description: "Modelo final OBT (One Big Table) que consolida métricas meteorológicas enriquecidas para análisis y reporting"
+
+    columns:
+
+      - name: country_code
+        description: "Código ISO del país"
+        tests:
+          - not_null
+          - unique
+          - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: city_name
+        description: "Nombre de la ciudad"
+
+      - name: temp
+        description: "Temperatura en grados Celsius"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: -100
+                max_value: 60
+
+      - name: humidity
+        description: "Humedad relativa en porcentaje"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+                max_value: 100
+
+      - name: wind_speed
+        description: "Velocidad del viento en metros por segundo"
+
+      - name: timezone
+        description: "Zona horaria asociada al evento meteorológico"

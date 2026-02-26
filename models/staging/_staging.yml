@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_openweather
+    description: "Modelo staging que normaliza datos crudos de la API OpenWeather"
+
+    columns:
+      - name: city_name
+        description: "Nombre de la ciudad consultada"
+
+      - name: temp
+        description: "Temperatura actual en grados Celsius"
+
+      - name: humidity
+        description: "Humedad relativa en porcentaje"
+
+      - name: wind_speed
+        description: "Velocidad del viento en m/s"
+
+      - name: timezone
+        description: "Zona horaria reportada por la API"
+
+  - name: stg_rest_countries
+    description: "Modelo staging que normaliza datos provenientes de REST Countries API"
+
+    columns:
+      - name: country_code
+        description: "Código ISO alpha-2 del país"
+
+      - name: country_name
+        description: "Nombre oficial del país"
+
+      - name: region
+        description: "Región geográfica del país"
+
+      - name: subregion
+        description: "Subregión del país"
