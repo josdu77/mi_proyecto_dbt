@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: mart_weather_obt
+    description: "Tabla final OBT para analítica (OpenWeather + Rest Countries)."
