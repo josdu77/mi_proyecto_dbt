@@ -1,6 +1,8 @@
 with src as (
+
     select *
     from {{ source('airbyte_curso', 'rest_countries') }}
+
 )
 
 select
@@ -8,15 +10,15 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
 
-    -- campos principales (ajustá si tu tabla tiene nombres distintos)
-    cca2,
+    -- Primary key estandarizada
+    cca2 as country_code,
+
+    -- Otros campos
     cca3,
     region,
     subregion,
     population,
     area,
-
-    -- name suele venir como struct/json según tu pipeline
     name,
     capital
 

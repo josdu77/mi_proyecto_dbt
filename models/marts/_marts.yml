@@ -1,8 +1,9 @@
 version: 2
 
 models:
+
   - name: mart_weather_obt
-    description: "Modelo final OBT (One Big Table) que consolida métricas meteorológicas enriquecidas para análisis y reporting"
+    description: "One Big Table final para análisis meteorológico"
 
     columns:
 
@@ -35,7 +36,11 @@ models:
                 max_value: 100
 
       - name: wind_speed
-        description: "Velocidad del viento en metros por segundo"
+        description: "Velocidad del viento en m/s"
 
       - name: timezone
-        description: "Zona horaria asociada al evento meteorológico"
+        description: "Zona horaria"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['UTC']

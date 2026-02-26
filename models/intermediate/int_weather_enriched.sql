@@ -35,6 +35,6 @@ select
     c.population,
     c.area
 
-from ow
-left join countries c
-    on c.cca2 = ow.sys['country']::varchar
+from {{ ref('stg_openweather') }} ow
+inner join {{ ref('stg_rest_countries') }} c
+    on upper(c.country_code) = upper(ow.sys['country']::varchar)

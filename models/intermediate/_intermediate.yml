@@ -1,24 +1,16 @@
 version: 2
 
 models:
+
   - name: int_weather_enriched
-    description: "Modelo intermedio que combina datos meteorológicos con información geográfica del país"
+    description: "Modelo intermedio que integra datos meteorológicos con países"
 
     columns:
       - name: country_code
-        description: "Código ISO utilizado como clave de integración"
-
-      - name: city_name
-        description: "Ciudad asociada al dato meteorológico"
-
-      - name: temp
-        description: "Temperatura enriquecida con contexto país"
-
-      - name: humidity
-        description: "Nivel de humedad enriquecido"
-
-      - name: wind_speed
-        description: "Velocidad del viento"
-
-      - name: timezone
-        description: "Zona horaria del evento meteorológico"
+        description: "Clave de país"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_rest_countries')
+                field: country_code
