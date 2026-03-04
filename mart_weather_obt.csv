@@ -1,0 +1,2 @@
+weather_unix_dt,city_name,country_code,lat,lon,temp,humidity,pressure,wind_speed,cloud_pct,timezone,country_name,region,subregion,population
+1772017813.000000000,Caaguazú,PY,-25.392,-55.995,23.09,80,1009,1.25,100,-10800.000000000,"{""common"":""Paraguay"",""official"":""Republic of Paraguay"",""nativeName"":{""grn"":{""official"":""Tetã Paraguái"",""common"":""Paraguái""},""spa"":{""official"":""República de Paraguay"",""common"":""Paraguay""}}}",Americas,South America,6109644.000000000
