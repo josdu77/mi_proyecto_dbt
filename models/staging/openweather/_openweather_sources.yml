@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: airbyte_curso
-    schema: main
-    tables:
-      - name: openweather
-        description: "Respuesta de OpenWeather cargada vía Airbyte (custom REST) en MotherDuck."

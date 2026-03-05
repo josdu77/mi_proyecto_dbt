@@ -1,5 +1,29 @@
 version: 2
 
 models:
-  - name: mart_weather_obt
-    description: "Tabla final OBT para analítica (OpenWeather + Rest Countries)."
+  - name: fact_procedures
+    description: "Tabla de hechos: procedimientos médicos por encounter."
+    columns:
+      - name: patient_id
+        tests:
+          - not_null
+
+      - name: encounter_id
+        tests:
+          - not_null
+
+      - name: base_cost
+        tests:
+          - not_null
+
+  - name: dim_patient
+    description: "Dimensión paciente."
+
+  - name: dim_payer
+    description: "Dimensión aseguradora."
+
+  - name: dim_encounter
+    description: "Dimensión encounter médico."
+
+  - name: dim_date
+    description: "Dimensión calendario derivada."
